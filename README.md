@@ -29,6 +29,6 @@ Just click in the website of the repository or [here](https://kariba-eight.verce
 
 2. Start the local server using `npm run dev`
 
-##### [Back to the top](https://github.com/imLymei/kariba-card-counter#Kariba-card-counter)
+##### [Back to the top](https://github.com/imLymei/tower-of-hanoi#Tower-of-Hanoi)
 
 ###### Create by [Felipe Cardoso](https://lymei.art)
