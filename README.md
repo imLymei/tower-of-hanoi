@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tower of Hanoi
 
-## Getting Started
+Move the disks in the tower until you move all of them from A to C.
 
-First, run the development server:
+### Rules
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. Only one disk can be moved at a time.
+2. A disk can only be moved if it is the uppermost disk on a stack.
+3. No larger disk may be placed on top of a smaller disk.
+4. Move all the disk from pilar A to C.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💻 Frameworks
 
-You can start editing the page by modifying `app/page.jsx`. The page auto-updates as you edit the file.
+- [Next.js](https://nextjs.org)
+- [Node.js](https://nodejs.org)
+- [Tailwind CSS](https://tailwindcss.com)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 🚀 How to use it?
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Online access
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Just click in the website of the repository or [here](https://kariba-eight.vercel.app)!
 
-## Learn More
+##### or
 
-To learn more about Next.js, take a look at the following resources:
+### Local acess
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Install node modules in the project with `npm install`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Start the local server using `npm run dev`
 
-## Deploy on Vercel
+##### [Back to the top](https://github.com/imLymei/kariba-card-counter#Kariba-card-counter)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+###### Create by [Felipe Cardoso](https://lymei.art)
