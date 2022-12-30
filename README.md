@@ -19,7 +19,7 @@ Move the disks in the tower until you move all of them from A to C.
 
 ### Online access
 
-Just click in the website of the repository or [here](https://kariba-eight.vercel.app)!
+Just click in the website of the repository or [here](https://tower-of-hanoi-eight.vercel.app)!
 
 ##### or
 
