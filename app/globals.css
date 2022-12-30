@@ -17,6 +17,8 @@ body {
 	font-family: 'Roboto Mono', monospace;
 }
 
-.tower:hover .line {
-	background-color: rgb(239 68 68);
+@media (min-width: 680px) {
+	.tower:hover .line {
+		background-color: rgb(239 68 68);
+	}
 }

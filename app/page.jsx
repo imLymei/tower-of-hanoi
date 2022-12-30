@@ -33,31 +33,41 @@ export default function Home() {
 	}
 
 	return (
-		<div className='h-[100vh] w-[100vw] flex justify-center items-center'>
-			<div className='relative flex justify-center gap-16'>
-				{towers.map((towerHeight, index) => (
-					<div
-						key={index}
-						onClick={() => handleTowers(index)}
-						className='tower relative px-12 cursor-pointer'>
+		<div className='max-sm:relative bottom-[-60vh]'>
+			<div className='h-[100vh] w-[100vw] flex justify-center items-center'>
+				<div className='relative flex justify-center flex-col sm:flex-row gap-16'>
+					{towers.map((towerHeight, index) => (
 						<div
-							className={
-								selectedTower === index
-									? 'bg-red-400 line w-1 h-[6rem] translate-x-[-50%]'
-									: 'line w-1 h-[6rem] bg-slate-300 translate-x-[-50%]'
-							}></div>
-						<div className='flex flex-col gap-1 items-center absolute bottom-0 translate-x-[-50%]'>
-							{new Array(towerHeight).map((diskArray) =>
-								diskArray.map((diskNumber, index) => (
-									<div key={index} className='h-3 bg-blue-500' style={{ width: diskNumber * 32 }}></div>
-								))
-							)}
+							key={index}
+							onClick={() => handleTowers(index)}
+							className='tower relative px-12 cursor-pointer'>
+							<div
+								className={
+									selectedTower === index
+										? 'bg-red-400 line w-1 h-[6rem] translate-x-[-50%]'
+										: 'line w-1 h-[6rem] bg-slate-300 translate-x-[-50%]'
+								}></div>
+							<div className='flex flex-col gap-1 items-center absolute bottom-0 translate-x-[-50%]'>
+								{new Array(towerHeight).map((diskArray) =>
+									diskArray.map((diskNumber, index) => (
+										<div key={index} className='h-3 bg-sky-700' style={{ width: diskNumber * 32 }}></div>
+									))
+								)}
+							</div>
 						</div>
-					</div>
-				))}
-				<div className='absolute left-[44px] top-[100px]'>A</div>
-				<div className='absolute top-[100px]'>B</div>
-				<div className='absolute right-[46px] top-[100px]'>C</div>
+					))}
+					<div className='absolute left-[44px] top-[100px]'>A</div>
+					<div className='absolute max-sm:left-[44px] top-[260px] sm:top-[100px]'>B</div>
+					<div className='absolute left-[44px] sm:left-[373px] top-[420px] sm:top-[100px]'>C</div>
+				</div>
+				<button
+					className='absolute bottom-[2vh] max-sm:mb-6 sm:bottom-[20vh] border border-white px-6'
+					onClick={() => {
+						setTowers([[1, 2, 3, 4, 5], [], []]);
+						setSelectedTower(undefined);
+					}}>
+					Restart
+				</button>
 			</div>
 		</div>
 	);
