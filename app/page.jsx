@@ -69,7 +69,7 @@ export default function Home() {
 					</h1>
 				</div>
 				<button
-					className='absolute bottom-[2vh] max-sm:mb-6 sm:bottom-[20vh] border border-white px-6'
+					className='absolute bottom-[10vh] max-sm:mb-6 sm:bottom-[30vh] border border-white px-6'
 					onClick={() => {
 						setTowers([[1, 2, 3, 4, 5], [], []]);
 						setSelectedTower(undefined);

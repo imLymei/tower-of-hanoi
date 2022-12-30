@@ -1,3 +1,4 @@
+import Footer from './Footer';
 import './globals.css';
 import TextHeader from './TextHeader';
 
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
 			<body className='min-h-[100vh] w-[100vw] bg-neutral-800 text-white max-sm:relative'>
 				<TextHeader />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
