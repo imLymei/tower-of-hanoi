@@ -36,7 +36,7 @@ export default function Home() {
 	}
 
 	return (
-		<div className='max-sm:relative bottom-[-60vh]'>
+		<div className='max-sm:relative bottom-[-30vh]'>
 			<div className='h-[100vh] w-[100vw] flex justify-center items-center'>
 				<div className='relative flex justify-center flex-col sm:flex-row gap-16'>
 					{towers.map((towerHeight, index) => (
@@ -63,9 +63,9 @@ export default function Home() {
 					<div className='absolute max-sm:left-[44px] top-[260px] sm:top-[100px]'>B</div>
 					<div className='absolute left-[44px] sm:left-[373px] top-[420px] sm:top-[100px]'>C</div>
 					<h1
-						className='absolute text-6xl top-[-140px] sm:top-[-110px]'
+						className='absolute text-4xl top-[-140px] sm:top-[-60px] max-sm:whitespace-nowrap max-sm:translate-x-[-15%]'
 						style={win ? { opacity: 1 } : { opacity: 0 }}>
-						YOU <span className='text-red-500 hover:underline underline-offset-2'>WON</span>!
+						You <span className='text-red-500'>Won</span>!
 					</h1>
 				</div>
 				<button
