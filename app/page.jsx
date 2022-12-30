@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function Home() {
 	const [towers, setTowers] = useState([[1, 2, 3, 4, 5], [], []]);
 	const [selectedTower, setSelectedTower] = useState();
+	const [win, setWin] = useState(false);
 
 	function handleTowers(index) {
 		if (selectedTower !== undefined) {
@@ -29,6 +30,8 @@ export default function Home() {
 
 			setTowers(newTowers);
 			setSelectedTower(undefined);
+
+			if (clickedTower.length === 5) setWin(true);
 		} else setSelectedTower(index);
 	}
 
@@ -59,12 +62,18 @@ export default function Home() {
 					<div className='absolute left-[44px] top-[100px]'>A</div>
 					<div className='absolute max-sm:left-[44px] top-[260px] sm:top-[100px]'>B</div>
 					<div className='absolute left-[44px] sm:left-[373px] top-[420px] sm:top-[100px]'>C</div>
+					<h1
+						className='absolute text-6xl top-[-140px] sm:top-[-110px]'
+						style={win ? { opacity: 1 } : { opacity: 0 }}>
+						YOU <span className='text-red-500 hover:underline underline-offset-2'>WON</span>!
+					</h1>
 				</div>
 				<button
 					className='absolute bottom-[2vh] max-sm:mb-6 sm:bottom-[20vh] border border-white px-6'
 					onClick={() => {
 						setTowers([[1, 2, 3, 4, 5], [], []]);
 						setSelectedTower(undefined);
+						setWin(false);
 					}}>
 					Restart
 				</button>
