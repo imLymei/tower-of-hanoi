@@ -1,91 +1,64 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+'use client';
 
-const inter = Inter({ subsets: ['latin'] })
+import { useState } from 'react';
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.jsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	const [towers, setTowers] = useState([[1, 2, 3, 4, 5], [], []]);
+	const [selectedTower, setSelectedTower] = useState();
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
+	function handleTowers(index) {
+		if (selectedTower !== undefined) {
+			const newTowers = [...towers];
+			const newSelectedTower = newTowers[selectedTower];
+			const clickedTower = newTowers[index];
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+			if (newSelectedTower.length <= 0) {
+				setSelectedTower(undefined);
+				return;
+			}
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
+			if (newSelectedTower[0] > clickedTower[0]) {
+				setSelectedTower(undefined);
+				return;
+			}
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+			const poppedDisc = newTowers[selectedTower].shift();
+			newTowers[index].unshift(poppedDisc);
+
+			console.log(newSelectedTower + ' ' + clickedTower + '/ ' + poppedDisc + '/ ' + clickedTower[1]);
+
+			setTowers(newTowers);
+			setSelectedTower(undefined);
+		} else setSelectedTower(index);
+	}
+
+	return (
+		<div className='h-[100vh] w-[100vw] flex justify-center items-center'>
+			<div className='relative flex justify-center gap-16'>
+				{towers.map((towerHeight, index) => (
+					<div
+						key={index}
+						onClick={() => handleTowers(index)}
+						className='tower relative px-12 cursor-pointer'>
+						<div
+							className={
+								selectedTower === index
+									? 'bg-red-400 line w-1 h-[6rem] translate-x-[-50%]'
+									: 'line w-1 h-[6rem] bg-slate-300 translate-x-[-50%]'
+							}></div>
+						<div className='flex flex-col gap-1 items-center absolute bottom-0 translate-x-[-50%]'>
+							{new Array(towerHeight).map((diskArray) =>
+								diskArray.map((diskNumber, index) => (
+									<div key={index} className='h-3 bg-blue-500' style={{ width: diskNumber * 32 }}></div>
+								))
+							)}
+						</div>
+					</div>
+				))}
+				<div className='absolute left-[44px] top-[100px]'>A</div>
+				<div className='absolute top-[100px]'>B</div>
+				<div className='absolute right-[46px] top-[100px]'>C</div>
+			</div>
+		</div>
+	);
 }
