@@ -25,9 +25,15 @@ Just click in the website of the repository or [here](https://tower-of-hanoi-eig
 
 ### Local acess
 
-1. Install node modules in the project with `npm install`
+Install node modules in the project and start the server:
 
-2. Start the local server using `npm run dev`
+```
+#install npm
+npm install
+
+#start server
+npm run dev
+```
 
 ##### [Back to the top](https://github.com/imLymei/tower-of-hanoi#Tower-of-Hanoi)
 
