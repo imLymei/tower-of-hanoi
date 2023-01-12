@@ -26,12 +26,15 @@ export default function Home() {
 			const poppedDisc = newTowers[selectedTower].shift();
 			newTowers[index].unshift(poppedDisc);
 
-			console.log(newSelectedTower + ' ' + clickedTower + '/ ' + poppedDisc + '/ ' + clickedTower[1]);
+			// console.log(newSelectedTower + ' ' + clickedTower + '/ ' + poppedDisc + '/ ' + clickedTower[1]);
 
 			setTowers(newTowers);
 			setSelectedTower(undefined);
 
-			if (clickedTower.length === 5) setWin(true);
+			if (clickedTower.length === 5 && index === 2) {
+				setWin(true);
+				console.log(clickedTower + '|' + index);
+			}
 		} else setSelectedTower(index);
 	}
 
